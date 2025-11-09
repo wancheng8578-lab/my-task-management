@@ -35,13 +35,13 @@ export default function Dashboard() {
 
   const [taskName, setTaskName] = useState(``);
 
-  const latestTasks = useMemo(() => {
-    return tasks.slice(0, 3);
-  }, [tasks]);
+  const latestTasks = tasks.slice(0, 3);
 
-  const filteredTasks = tasks.filter((task) => {
-    return task.name.toLowerCase().includes(search.toLowerCase());
-  });
+  const filteredTasks = useMemo(() => {
+    return tasks.filter((task) => {
+      return task.name.toLowerCase().includes(search.toLowerCase());
+    });
+  }, [tasks, search]);
 
   const saveTask = (name) => {
     if (selectedTask) {
