@@ -1,4 +1,4 @@
-import { Box, Checkbox, IconButton, Grid, Stack } from '@mui/material';
+import { Box, IconButton, Grid, Stack } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
@@ -12,6 +12,7 @@ import {
   Text,
   AddTaskModal,
   Piechart,
+  CheckBox,
 } from '@/components';
 import { useTasks } from '@/context';
 import { useTheme } from '@mui/material/styles';
@@ -42,7 +43,7 @@ export default function Dashboard() {
     if (selectedTask) {
       updateTask({ ...selectedTask, name });
     } else {
-      addTask({ id: String(Date.now()), name, completed: false });
+      addTask({ id: String(Date.now()), name, isTaskCompleted: false });
     }
 
     setSelectedTask(null);
@@ -157,7 +158,7 @@ export default function Dashboard() {
                 children: (
                   <Text
                     sx={{
-                      textDecoration: t.completed ? `line-through` : `none`,
+                      textDecoration: t.isTaskCompleted ? `line-through` : `none`,
                     }}
                   >
                     {t.name}
@@ -210,21 +211,25 @@ export default function Dashboard() {
       </Stack>
 
       <ListTable
-        items={filteredTasks}
-        getLabel={(task) => task.name}
+        items={filteredTasks.map((task) => {
+          return {
+            ...task,
+            value: task.isTaskCompleted,
+          };
+        })}
         renderLeft={(task) => (
-          <Checkbox
-            checked={task.completed}
-            onChange={(e) => updateTask({ ...task, completed: e.target.checked })}
+          <CheckBox
+            checked={task.isTaskCompleted}
+            onChange={(checked) => updateTask({ ...task, isTaskCompleted: checked })}
           />
         )}
         renderRight={(task) => (
           <Stack direction="row" spacing={1}>
             <IconButton onClick={() => modifyTaskName(task)}>
-              <EditIcon fontSize="small" />
+              <EditIcon fontSize="medium" />
             </IconButton>
             <IconButton onClick={() => deleteTask(task.id)}>
-              <DeleteIcon fontSize="small" />
+              <DeleteIcon fontSize="medium" />
             </IconButton>
           </Stack>
         )}

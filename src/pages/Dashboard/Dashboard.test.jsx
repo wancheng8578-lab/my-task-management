@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { describe, test, expect, beforeEach, vi } from 'vitest';
-import Dashboard from './Dashboard';
+import Dashboard from '.';
 
 const mockContext = {
   tasks: [],

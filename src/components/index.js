@@ -8,6 +8,7 @@ export { Component as TopBar } from './common/TopBar';
 export { Component as PointListing } from './common/PointListing';
 export { Component as Text } from './common/Text';
 export { Component as Image } from './common/Image';
+export { Component as CheckBox } from './common/CheckBox';
 
 //modals
 export { Component as AddTaskModal } from './modals/AddTaskModal';

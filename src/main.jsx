@@ -3,6 +3,7 @@ import App from './App';
 import { UserProvider, TaskProvider } from '@/context';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from '@/route/index.jsx';
 
 const theme = createTheme({
   palette: {
@@ -24,12 +25,12 @@ const theme = createTheme({
 });
 
 ReactDOM.createRoot(document.getElementById(`root`)).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/task-management-app">
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <UserProvider>
         <TaskProvider>
-          <App />
+          <AppRoutes />
         </TaskProvider>
       </UserProvider>
     </ThemeProvider>

@@ -19,10 +19,6 @@ export const TaskProvider = ({ children }) => {
     store(tasks.filter((task) => task.id !== id));
   };
 
-  const toggleComplete = (id) => {
-    store(tasks.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)));
-  };
-
   const updateTask = (selectedTask) => {
     store(tasks.map((task) => (task.id === selectedTask.id ? selectedTask : task)));
   };
@@ -35,16 +31,14 @@ export const TaskProvider = ({ children }) => {
   const stats = useMemo(
     () => ({
       total: tasks.length,
-      completed: tasks.filter((task) => task.completed).length,
-      pending: tasks.filter((task) => !task.completed).length,
+      completed: tasks.filter((task) => task.isTaskCompleted).length,
+      pending: tasks.filter((task) => !task.isTaskCompleted).length,
     }),
     [tasks]
   );
 
   return (
-    <TaskContext.Provider
-      value={{ tasks, addTask, deleteTask, toggleComplete, updateTask, stats, deleteAllTask }}
-    >
+    <TaskContext.Provider value={{ tasks, addTask, deleteTask, updateTask, stats, deleteAllTask }}>
       {children}
     </TaskContext.Provider>
   );
