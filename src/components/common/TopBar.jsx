@@ -16,7 +16,7 @@ const Component = () => {
   const logout = () => {
     removeAllUser(`user`);
     deleteAllTask(`tasks`);
-    navigate(`/login`);
+    navigate(`/login`, { replace: true });
   };
 
   if (!user) {

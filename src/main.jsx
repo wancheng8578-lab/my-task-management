@@ -21,15 +21,6 @@ const theme = createTheme({
     MuiButton: { defaultProps: { disableElevation: true } },
   },
   typography: { fontFamily: `Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial` },
-  // MuiDialog: {
-  //   styleOverrides: {
-  //     container: {
-  //       alignItems: { xs: `flex-start`, sm: `center` }, // center / end / etc.
-  //       justifyContent: `center`,
-  //       paddingTop: `40px`,
-  //     },
-  //   },
-  // },
 });
 
 ReactDOM.createRoot(document.getElementById(`root`)).render(

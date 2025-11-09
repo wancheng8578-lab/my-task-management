@@ -1,7 +1,7 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useUser } from '@/context';
 
-export default function ProtectedRoute({ children }) {
+export default function ProtectedRoute() {
   const { user } = useUser();
-  return user ? children : <Navigate to="/login" />;
+  return user.id ? <Outlet /> : <Navigate to="/login" replace />;
 }
