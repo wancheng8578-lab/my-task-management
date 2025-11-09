@@ -3,8 +3,8 @@ import { Box } from '@mui/material';
 import { Images } from '@/assets';
 
 const Component = ({
-  src = Images.profile_pic,
-  fallback = Images.logo2,
+  src,
+  fallback = Images.image_not_found,
   width = 80,
   height = 80,
   rounded = false,
@@ -29,6 +29,7 @@ const Component = ({
       <img
         src={imageSrc}
         alt=""
+        loading="lazy"
         onError={() => setError(true)}
         style={{
           width: `100%`,

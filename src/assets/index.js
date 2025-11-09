@@ -1,9 +1,7 @@
-import logo from './images/logo.png';
-import logo2 from './images/logo2.png';
+import image_not_found from './images/image_not_found.png';
 import profile_pic from './images/profile_pic.jpg';
 
 export const Images = {
-  logo,
-  logo2,
   profile_pic,
+  image_not_found,
 };
