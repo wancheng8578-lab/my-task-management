@@ -25,7 +25,7 @@ const theme = createTheme({
 });
 
 ReactDOM.createRoot(document.getElementById(`root`)).render(
-  <BrowserRouter basename="/task-management-app">
+  <BrowserRouter basename="/my-task-management">
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <UserProvider>

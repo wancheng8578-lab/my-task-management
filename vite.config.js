@@ -26,5 +26,5 @@ export default defineConfig({
     setupFiles: `./src/setupTests.js`,
     threads: false,
   },
-  base: `/task-management-app/`,
+  base: `/my-task-management/`,
 });
