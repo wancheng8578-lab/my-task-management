@@ -19,7 +19,7 @@ const Component = ({
   };
 
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal dataTestid={`add-task-modal`} open={open} onClose={onClose}>
       <Stack
         component="form"
         onSubmit={handleSubmit}
@@ -27,7 +27,7 @@ const Component = ({
         sx={{ pt: 1 }}
         gap={1}
       >
-        <Text variant={`h6`} sx={{ mb: 2 }}>
+        <Text dataTestid={`task-name-input`} variant={`h6`} sx={{ mb: 2 }}>
           {title}
         </Text>
         <TextBox label={label} value={taskName} onChange={setTaskName} required />

@@ -1,9 +1,10 @@
 import { Dialog, DialogTitle, DialogContent } from '@mui/material';
 import * as React from 'react';
 
-const Component = React.memo(({ open, onClose, children, title, sx }) => {
+const Component = React.memo(({ open, onClose, children, title, sx, dataTestid }) => {
   return (
     <Dialog
+      data-testid={dataTestid}
       open={open}
       onClose={onClose}
       maxWidth="xs"

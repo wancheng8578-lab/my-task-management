@@ -7,9 +7,11 @@ const Component = ({
   sx,
   type = `submit`,
   variant = `contained`,
+  dataTestid,
 }) => {
   return (
     <Button
+      data-testid={dataTestid}
       sx={{ textTransform: `none`, ...sx }}
       fullWidth={fullWidth}
       variant={variant}

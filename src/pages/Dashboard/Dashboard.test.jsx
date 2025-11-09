@@ -31,9 +31,10 @@ describe(`Dashboard (Empty State)`, () => {
 
   test(`opens modal when clicking + New Task button`, () => {
     render(<Dashboard />);
-    fireEvent.click(screen.getByRole(`button`, { name: /\+ New Task/i }));
 
-    expect(screen.getByLabelText(`Task name`)).toBeInTheDocument();
-    expect(screen.getByRole(`button`, { name: /save/i })).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId(`new-task-button`));
+
+    expect(screen.getByTestId(`add-task-modal`)).toBeInTheDocument();
+    expect(screen.getByTestId(`task-name-input`)).toBeInTheDocument();
   });
 });

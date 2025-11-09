@@ -1,8 +1,13 @@
 import { Typography } from '@mui/material';
 
-const Component = ({ variant, sx, children, color }) => {
+const Component = ({ variant, sx, children, color, dataTestid }) => {
   return (
-    <Typography variant={variant} sx={{ opacity: 0.7, ...sx }} color={color}>
+    <Typography
+      data-testid={dataTestid}
+      variant={variant}
+      sx={{ opacity: 0.7, ...sx }}
+      color={color}
+    >
       {children}
     </Typography>
   );

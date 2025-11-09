@@ -83,7 +83,11 @@ export default function Dashboard() {
               {`You have no tasks.`}
             </Text>
 
-            <Button sx={{ mt: 2 }} onClick={() => setIsModalVisible(true)}>
+            <Button
+              dataTestid={`new-task-button`}
+              sx={{ mt: 2 }}
+              onClick={() => setIsModalVisible(true)}
+            >
               {`+ New Task`}
             </Button>
           </Card>
