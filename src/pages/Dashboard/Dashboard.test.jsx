@@ -4,7 +4,7 @@ import Dashboard from '.';
 
 const mockContext = {
   tasks: [],
-  stats: { total: 0, completed: 0, pending: 0 },
+  taskStatus: { total: 0, completed: 0, pending: 0 },
   addTask: vi.fn(),
   updateTask: vi.fn(),
   deleteTask: vi.fn(),
@@ -18,7 +18,7 @@ describe(`Dashboard (Empty State)`, () => {
   beforeEach(() => {
     cleanup();
     mockContext.tasks = [];
-    mockContext.stats = { total: 0, completed: 0, pending: 0 };
+    mockContext.taskStatus = { total: 0, completed: 0, pending: 0 };
     mockContext.addTask = vi.fn();
     mockContext.updateTask = vi.fn();
     mockContext.deleteTask = vi.fn();

@@ -20,11 +20,11 @@ import { useTheme } from '@mui/material/styles';
 export default function Dashboard() {
   const theme = useTheme();
 
-  const { tasks, addTask, updateTask, stats, deleteTask } = useTasks();
+  const { tasks, addTask, updateTask, taskStatus, deleteTask } = useTasks();
 
   const CHART_DATA = [
-    { name: `Completed Task`, value: stats.completed },
-    { name: `Pending`, value: stats.pending },
+    { name: `Completed Task`, value: taskStatus.completed },
+    { name: `Pending`, value: taskStatus.pending },
   ];
 
   const [search, setSearch] = useState(``);
@@ -144,10 +144,10 @@ export default function Dashboard() {
                 variant={`h2`}
                 color={theme.palette.primary.main}
               >
-                {stats.completed}
+                {taskStatus.completed}
               </Text>
 
-              <Text>{`/${stats.total}`}</Text>
+              <Text>{`/${taskStatus.total}`}</Text>
             </Stack>
           </Card>
         </Grid>

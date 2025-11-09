@@ -32,7 +32,7 @@ export const TaskProvider = ({ children }) => {
     remove(`tasks`);
   };
 
-  const stats = useMemo(
+  const taskStatus = useMemo(
     () => ({
       total: tasks.length,
       completed: tasks.filter((task) => {
@@ -46,7 +46,9 @@ export const TaskProvider = ({ children }) => {
   );
 
   return (
-    <TaskContext.Provider value={{ tasks, addTask, deleteTask, updateTask, stats, deleteAllTask }}>
+    <TaskContext.Provider
+      value={{ tasks, addTask, deleteTask, updateTask, taskStatus, deleteAllTask }}
+    >
       {children}
     </TaskContext.Provider>
   );
