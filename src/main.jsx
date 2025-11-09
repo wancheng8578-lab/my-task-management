@@ -9,10 +9,10 @@ const theme = createTheme({
   palette: {
     mode: `light`,
     background: { default: `#F7F9FC` },
-    primary: { main: `#5A8DEE` },
+    primary: { main: `#4F7FFF` },
     secondary: { main: `#E6E9EF` },
     text: {
-      primary: `#374151`,
+      primary: `#6B7A8C`,
       secondary: `#6B7280`,
     },
   },
@@ -21,7 +21,14 @@ const theme = createTheme({
     MuiPaper: { styleOverrides: { root: { boxShadow: `0 1px 6px rgba(0,0,0,0.06)` } } },
     MuiButton: { defaultProps: { disableElevation: true } },
   },
-  typography: { fontFamily: `Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial` },
+
+  typography: {
+    fontFamily: `"Inter", "Roboto", "Helvetica", "Arial", sans-serif`,
+    button: {
+      fontFamily: `"Inter", "Roboto", "Helvetica", "Arial", sans-serif`,
+      letterSpacing: `0.5px`,
+    },
+  },
 });
 
 ReactDOM.createRoot(document.getElementById(`root`)).render(

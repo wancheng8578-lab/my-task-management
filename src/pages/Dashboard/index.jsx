@@ -79,7 +79,7 @@ export default function Dashboard() {
               borderRadius: { xs: 0, sm: 1 },
             }}
           >
-            <Text variant={`h6`} fontWeight={500} sx={{ textAlign: `center` }}>
+            <Text variant={`h6`} sx={{ textAlign: `center` }}>
               {`You have no tasks.`}
             </Text>
 
@@ -121,7 +121,7 @@ export default function Dashboard() {
               height: `100%`,
             }}
           >
-            <Text variant={`h5`} sx={{ opacity: 0.7 }}>
+            <Text variant={`h6`} sx={{ fontWeight: 500 }}>
               {`Tasks Completed`}
             </Text>
 
@@ -152,7 +152,7 @@ export default function Dashboard() {
               },
             }}
           >
-            <Text variant={`h5`} sx={{ mb: 1.5 }}>
+            <Text variant={`h6`} sx={{ mb: 1.5, fontWeight: 500 }}>
               {`Latest Created Tasks`}
             </Text>
 
@@ -194,9 +194,9 @@ export default function Dashboard() {
         justifyContent="space-between"
         alignItems="center"
         spacing={2}
-        sx={{ py: 2, mt: 2 }}
+        sx={{ py: 1, mt: 2 }}
       >
-        <Text variant="h6">{`Tasks`}</Text>
+        <Text variant={`h6`} sx={{ fontWeight: 500 }}>{`Tasks`}</Text>
 
         <Stack
           direction={{ xs: `column`, sm: `row` }}
@@ -210,7 +210,7 @@ export default function Dashboard() {
             leftIcon={<SearchIcon />}
             sx={{ minWidth: { xs: `100%`, sm: 250 } }}
           />
-          <Button onClick={() => setIsModalVisible(true)}>{`+ New Task`}</Button>
+          <Button sx={{ px: 3 }} onClick={() => setIsModalVisible(true)}>{`+ New Task`}</Button>
         </Stack>
       </Stack>
 
@@ -221,13 +221,13 @@ export default function Dashboard() {
             value: task.isTaskCompleted,
           };
         })}
-        renderLeft={(task) => (
+        leftComponent={(task) => (
           <CheckBox
             checked={task.isTaskCompleted}
             onChange={(checked) => updateTask({ ...task, isTaskCompleted: checked })}
           />
         )}
-        renderRight={(task) => (
+        rightComponent={(task) => (
           <Stack direction="row" spacing={1}>
             <IconButton onClick={() => modifyTaskName(task)}>
               <EditIcon fontSize="medium" />

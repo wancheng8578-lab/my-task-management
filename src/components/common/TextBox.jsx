@@ -28,11 +28,12 @@ const Component = ({
         },
         ...sx,
       }}
-      InputProps={
-        leftIcon && {
-          startAdornment: <InputAdornment position={`start`}>{leftIcon}</InputAdornment>,
-        }
-      }
+      InputLabelProps={{ required: false }}
+      InputProps={{
+        ...(leftIcon && {
+          startAdornment: <InputAdornment position="start">{leftIcon}</InputAdornment>,
+        }),
+      }}
       placeholder={placeholder}
       label={label}
       value={value}
