@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@mui/material';
 
-const Component = ({ children, sx, onSubmit, contentSx, contentPadding = 2, component }) => {
+const Component = ({ children, sx, onSubmit, contentSx, contentBottomPadding = 2, component }) => {
   return (
     <Card
       sx={{
@@ -16,7 +16,7 @@ const Component = ({ children, sx, onSubmit, contentSx, contentPadding = 2, comp
     >
       <CardContent
         sx={{
-          '&:last-child': { pb: contentPadding },
+          '&:last-child': { pb: contentBottomPadding },
           ...contentSx,
         }}
       >

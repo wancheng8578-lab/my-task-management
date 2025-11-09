@@ -25,7 +25,14 @@ const Component = () => {
   }
 
   return (
-    <AppBar position={`static`} color={`transparent`} sx={{ px: { xs: 2, sm: 10 } }} elevation={0}>
+    <AppBar
+      position={`static`}
+      color={`transparent`}
+      sx={{
+        backgroundColor: `#FFFFFF`,
+        px: { xs: 2, sm: 10 },
+      }}
+    >
       <Toolbar disableGutters sx={{ display: `flex`, justifyContent: `space-between` }}>
         <Stack flexDirection={`row`} gap={2} alignItems={`center`}>
           <Image src={Images.profile_pic} width={40} height={40} rounded fit={`cover`} />

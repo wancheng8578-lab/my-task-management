@@ -9,16 +9,15 @@ const theme = createTheme({
   palette: {
     mode: `light`,
     background: { default: `#F7F9FC` },
-    primary: { main: `#4F7FFF` },
+    primary: { main: `#6A8CFF` },
     secondary: { main: `#E6E9EF` },
     text: {
       primary: `#6B7A8C`,
-      secondary: `#6B7280`,
+      secondary: `#7E8C9C`,
     },
   },
   shape: { borderRadius: 12 },
   components: {
-    MuiPaper: { styleOverrides: { root: { boxShadow: `0 1px 6px rgba(0,0,0,0.06)` } } },
     MuiButton: { defaultProps: { disableElevation: true } },
   },
 

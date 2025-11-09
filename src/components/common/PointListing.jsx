@@ -17,7 +17,7 @@ const Component = ({ list = [], type = `disc`, startFrom = 1 }) => {
       start={startFrom}
       style={{
         listStyleType: styleType,
-        paddingLeft: `1.5rem`,
+        paddingLeft: `1rem`,
         margin: 0,
         color: theme.palette.text.secondary,
       }}

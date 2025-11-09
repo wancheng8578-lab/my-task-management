@@ -113,6 +113,7 @@ export default function Dashboard() {
                 xs: 0,
                 sm: 1,
               },
+              px: 1,
             }}
             contentSx={{
               display: `flex`,
@@ -150,6 +151,7 @@ export default function Dashboard() {
                 xs: 0,
                 sm: 1,
               },
+              px: 1,
             }}
           >
             <Text variant={`h6`} sx={{ mb: 1.5, fontWeight: 500 }}>
@@ -182,7 +184,7 @@ export default function Dashboard() {
               },
             }}
             contentSx={{ p: 0 }}
-            contentPadding={0}
+            contentBottomPadding={0}
           >
             <Piechart height={150} data={CHART_DATA} showLabelList={[`Completed Task`]} />
           </Card>
