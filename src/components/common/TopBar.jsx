@@ -20,7 +20,7 @@ const Component = () => {
     navigate(`/login`, { replace: true });
   };
 
-  if (!user) {
+  if (!user.id) {
     return;
   }
 

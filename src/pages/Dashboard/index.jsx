@@ -35,9 +35,13 @@ export default function Dashboard() {
 
   const [taskName, setTaskName] = useState(``);
 
-  const latestTasks = useMemo(() => tasks.slice(0, 3), [tasks]);
+  const latestTasks = useMemo(() => {
+    return tasks.slice(0, 3);
+  }, [tasks]);
 
-  const filteredTasks = tasks.filter((t) => t.name.toLowerCase().includes(search.toLowerCase()));
+  const filteredTasks = tasks.filter((task) => {
+    return task.name.toLowerCase().includes(search.toLowerCase());
+  });
 
   const saveTask = (name) => {
     if (selectedTask) {
@@ -86,7 +90,9 @@ export default function Dashboard() {
             <Button
               dataTestid={`new-task-button`}
               sx={{ mt: 2 }}
-              onClick={() => setIsModalVisible(true)}
+              onClick={() => {
+                setIsModalVisible(true);
+              }}
             >
               {`+ New Task`}
             </Button>
@@ -97,7 +103,9 @@ export default function Dashboard() {
           onSave={saveTask}
           taskName={taskName}
           setTaskName={setTaskName}
-          onClose={() => setIsModalVisible(false)}
+          onClose={() => {
+            setIsModalVisible(false);
+          }}
         />
       </Box>
     );
@@ -159,15 +167,15 @@ export default function Dashboard() {
             </Text>
 
             <PointListing
-              list={latestTasks.map((t, i) => ({
-                value: i,
+              list={latestTasks.map((task) => ({
+                value: task.id,
                 children: (
                   <Text
                     sx={{
-                      textDecoration: t.isTaskCompleted ? `line-through` : `none`,
+                      textDecoration: task.isTaskCompleted ? `line-through` : `none`,
                     }}
                   >
-                    {t.name}
+                    {task.name}
                   </Text>
                 ),
               }))}
@@ -212,7 +220,12 @@ export default function Dashboard() {
             leftIcon={<SearchIcon />}
             sx={{ minWidth: { xs: `100%`, sm: 250 } }}
           />
-          <Button sx={{ px: 3 }} onClick={() => setIsModalVisible(true)}>{`+ New Task`}</Button>
+          <Button
+            sx={{ px: 3 }}
+            onClick={() => {
+              setIsModalVisible(true);
+            }}
+          >{`+ New Task`}</Button>
         </Stack>
       </Stack>
 
@@ -226,15 +239,25 @@ export default function Dashboard() {
         leftComponent={(task) => (
           <CheckBox
             checked={task.isTaskCompleted}
-            onChange={(checked) => updateTask({ ...task, isTaskCompleted: checked })}
+            onChange={(checked) => {
+              updateTask({ ...task, isTaskCompleted: checked });
+            }}
           />
         )}
         rightComponent={(task) => (
           <Stack direction="row" spacing={1}>
-            <IconButton onClick={() => modifyTaskName(task)}>
+            <IconButton
+              onClick={() => {
+                modifyTaskName(task);
+              }}
+            >
               <EditIcon fontSize="medium" />
             </IconButton>
-            <IconButton onClick={() => deleteTask(task.id)}>
+            <IconButton
+              onClick={() => {
+                deleteTask(task.id);
+              }}
+            >
               <DeleteIcon fontSize="medium" />
             </IconButton>
           </Stack>
@@ -246,7 +269,9 @@ export default function Dashboard() {
         onSave={saveTask}
         taskName={taskName}
         setTaskName={setTaskName}
-        onClose={() => setIsModalVisible(false)}
+        onClose={() => {
+          setIsModalVisible(false);
+        }}
       />
     </Box>
   );

@@ -22,9 +22,9 @@ const Component = ({ list = [], type = `disc`, startFrom = 1 }) => {
         color: theme.palette.text.secondary,
       }}
     >
-      {list.map((item, index) => (
-        <li key={item.value ?? `row-${index}`}>{item.children}</li>
-      ))}
+      {list.map((item, index) => {
+        return <li key={item.value ?? `row-${index}`}>{item.children}</li>;
+      })}
     </ol>
   );
 };

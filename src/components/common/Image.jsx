@@ -30,7 +30,9 @@ const Component = ({
         src={imageSrc}
         alt=""
         loading="lazy"
-        onError={() => setError(true)}
+        onError={() => {
+          setError(true);
+        }}
         style={{
           width: `100%`,
           height: `100%`,

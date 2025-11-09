@@ -37,7 +37,9 @@ const Component = ({
       placeholder={placeholder}
       label={label}
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => {
+        onChange(e.target.value);
+      }}
       required={required}
     />
   );

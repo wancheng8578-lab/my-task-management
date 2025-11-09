@@ -36,11 +36,13 @@ const Component = ({ data, colors, height = 150, showLabelList }) => {
 
     return (
       <text x={x} y={y} textAnchor={textAnchor} fill={fill} fontSize={12}>
-        {words.map((line, i) => (
-          <tspan key={i} x={x} dy={i === 0 ? 0 : 16}>
-            {line}
-          </tspan>
-        ))}
+        {words.map((line, index) => {
+          return (
+            <tspan key={index} x={x} dy={index === 0 ? 0 : 16}>
+              {line}
+            </tspan>
+          );
+        })}
       </text>
     );
   };
@@ -59,16 +61,18 @@ const Component = ({ data, colors, height = 150, showLabelList }) => {
             }
             labelLine={<CustomLabelLine />}
           >
-            {data.map((entry, index) => (
-              <Cell
-                key={entry.name}
-                fill={
-                  colors && colors.length > 0
-                    ? colors[index % colors.length]
-                    : CHART_COLORS[index % CHART_COLORS.length]
-                }
-              />
-            ))}
+            {data.map((entry, index) => {
+              return (
+                <Cell
+                  key={entry.name}
+                  fill={
+                    colors && colors.length > 0
+                      ? colors[index % colors.length]
+                      : CHART_COLORS[index % CHART_COLORS.length]
+                  }
+                />
+              );
+            })}
           </Pie>
         </PieChart>
       </ResponsiveContainer>

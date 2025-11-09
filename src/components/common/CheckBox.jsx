@@ -33,7 +33,9 @@ const Component = ({ checked, onChange }) => {
       icon={uncheckedIcon}
       checkedIcon={checkedIcon}
       checked={checked}
-      onChange={(e) => onChange(e.target.checked)}
+      onChange={(e) => {
+        onChange(e.target.checked);
+      }}
       sx={{ mt: 0.5 }}
     />
   );

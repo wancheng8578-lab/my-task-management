@@ -6,9 +6,9 @@ const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState(load(`tasks`) || []);
 
-  const store = (u) => {
-    setTasks(u);
-    save(`tasks`, u);
+  const store = (task) => {
+    setTasks(task);
+    save(`tasks`, task);
   };
 
   const addTask = (newTask) => {
@@ -20,7 +20,11 @@ export const TaskProvider = ({ children }) => {
   };
 
   const updateTask = (selectedTask) => {
-    store(tasks.map((task) => (task.id === selectedTask.id ? selectedTask : task)));
+    store(
+      tasks.map((task) => {
+        return task.id === selectedTask.id ? selectedTask : task;
+      })
+    );
   };
 
   const deleteAllTask = () => {
@@ -31,8 +35,12 @@ export const TaskProvider = ({ children }) => {
   const stats = useMemo(
     () => ({
       total: tasks.length,
-      completed: tasks.filter((task) => task.isTaskCompleted).length,
-      pending: tasks.filter((task) => !task.isTaskCompleted).length,
+      completed: tasks.filter((task) => {
+        return task.isTaskCompleted;
+      }).length,
+      pending: tasks.filter((task) => {
+        return !task.isTaskCompleted;
+      }).length,
     }),
     [tasks]
   );

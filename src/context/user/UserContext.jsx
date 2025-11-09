@@ -6,9 +6,9 @@ const UserContext = createContext();
 export function UserProvider({ children }) {
   const [user, setUser] = useState(load(`user`) || []);
 
-  const store = (u) => {
-    setUser(u);
-    save(`user`, u);
+  const store = (userData) => {
+    setUser(userData);
+    save(`user`, userData);
   };
 
   const addUser = (userData) => {
